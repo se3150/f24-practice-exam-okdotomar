@@ -1,0 +1,27 @@
+name: Run Tests
+
+on: [push]
+
+jobs:
+  RunUnitTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install pytest
+        run: pip install pytest pytest-spec pytest-describe
+      - name: Run Unit Tests
+        run: pytest --spec --color=yes test_battery.py
+
+
+  RunFunctionalTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install chromedriver
+        uses: nanasess/setup-chromedriver@master
+      - name: Install behave
+        run: pip install behave behave-webdriver
+      - name: Run Behave
+        run: behave

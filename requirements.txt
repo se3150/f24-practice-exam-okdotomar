@@ -1,0 +1,8 @@
+pytest
+pytest-spec
+pytest-describe
+pytest-mock
+selenium==3.141.0
+urllib3<2.0
+behave==1.2.6
+behave-webdriver
